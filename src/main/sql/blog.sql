@@ -39,21 +39,21 @@ primary key(object_id)
 
 create table blog_comment(
 object_id varchar(19) not null COMMENT'主键',
-content	text not null COMMENT'评论内容',
-creat_time timestamp not null default current_timestamp '评论创建时间戳',
+content text not null COMMENT'评论内容',
+creat_time timestamp not null default current_timestamp COMMENT'评论创建时间戳',
 name varchar(50) not null COMMENT'评论人昵称',
 article_id varchar(19) not null COMMENT'评论文章的id',
-sharp_url	varchar(255) not null COMMENT'评论访问路径(#锚点)',
+sharp_url varchar(255) not null COMMENT'评论访问路径(#锚点)',
 avatar varchar(255) COMMENT'评论人头像地址',
-original_id	varchar(19) COMMENT'父评论id',
-original_name	varchar(50) COMMENT'父评论昵称',
+original_id varchar(19) COMMENT'父评论id',
+original_name varchar(50) COMMENT'父评论昵称',
 primary key(object_id)
 )ENGINE=InnoDB DEFAULT CHARACTER SET utf8mb4 collate utf8mb4_general_ci COMMENT='博客评论表';
 
 create table blog_tag(
 object_id varchar(19) not null COMMENT'主键',
 title varchar(255) not null COMMENT'标签标题',
-published_article int not null COMMENT'标签关联的已发布文章数量'
+published_article int not null COMMENT'标签关联的已发布文章数量',
 primary key(object_id)
 )ENGINE=InnoDB DEFAULT CHARACTER SET utf8mb4 collate utf8mb4_general_ci COMMENT='博客标签表';
 
