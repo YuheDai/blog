@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.daiyuhe.blog.dao.ArticleArchiveDao">
+  <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.ArticleArchive">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="article_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="archive_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, article_id, archive_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_article_archive
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_article_archive
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.daiyuhe.blog.entity.ArticleArchive">
+    insert into blog_article_archive (object_id, article_id, archive_id
+      )
+    values (#{objectId,jdbcType=VARCHAR}, #{articleId,jdbcType=VARCHAR}, #{archiveId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.ArticleArchive">
+    insert into blog_article_archive
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="archiveId != null">
+        archive_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="articleId != null">
+        #{articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.ArticleArchive">
+    update blog_article_archive
+    <set>
+      <if test="articleId != null">
+        article_id = #{articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null">
+        archive_id = #{archiveId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.ArticleArchive">
+    update blog_article_archive
+    set article_id = #{articleId,jdbcType=VARCHAR},
+      archive_id = #{archiveId,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.ArticleArchive">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="article_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="archive_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, article_id, archive_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_article_archive
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_article_archive
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.daiyuhe.blog.entity.ArticleArchive">
+    insert into blog_article_archive (object_id, article_id, archive_id
+      )
+    values (#{objectId,jdbcType=VARCHAR}, #{articleId,jdbcType=VARCHAR}, #{archiveId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.ArticleArchive">
+    insert into blog_article_archive
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="archiveId != null">
+        archive_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="articleId != null">
+        #{articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null">
+        #{archiveId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.ArticleArchive">
+    update blog_article_archive
+    <set>
+      <if test="articleId != null">
+        article_id = #{articleId,jdbcType=VARCHAR},
+      </if>
+      <if test="archiveId != null">
+        archive_id = #{archiveId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.ArticleArchive">
+    update blog_article_archive
+    set article_id = #{articleId,jdbcType=VARCHAR},
+      archive_id = #{archiveId,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+</mapper>

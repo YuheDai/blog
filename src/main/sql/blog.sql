@@ -56,7 +56,7 @@ primary key(object_id)
 create table blog_tag(
 object_id varchar(19) not null COMMENT'主键',
 title varchar(255) not null COMMENT'标签标题',
-published_article int not null COMMENT'标签关联的已发布文章数量',
+published_article_count int not null COMMENT'标签关联的已发布文章数量',
 primary key(object_id)
 )ENGINE=InnoDB DEFAULT CHARACTER SET utf8mb4 collate utf8mb4_general_ci COMMENT='博客标签表';
 

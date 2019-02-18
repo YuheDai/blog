@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.daiyuhe.blog.dao.OptionDao">
+  <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.Option">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_value" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, option_value, option_category
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option (object_id, option_value, option_category
+      )
+    values (#{objectId,jdbcType=VARCHAR}, #{optionValue,jdbcType=VARCHAR}, #{optionCategory,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="optionValue != null">
+        option_value,
+      </if>
+      <if test="optionCategory != null">
+        option_category,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        #{optionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="optionCategory != null">
+        #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    <set>
+      <if test="optionValue != null">
+        option_value = #{optionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="optionCategory != null">
+        option_category = #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    set option_value = #{optionValue,jdbcType=VARCHAR},
+      option_category = #{optionCategory,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.Option">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_value" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, option_value, option_category
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option (object_id, option_value, option_category
+      )
+    values (#{objectId,jdbcType=VARCHAR}, #{optionValue,jdbcType=VARCHAR}, #{optionCategory,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="optionValue != null">
+        option_value,
+      </if>
+      <if test="optionCategory != null">
+        option_category,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        #{optionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="optionCategory != null">
+        #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    <set>
+      <if test="optionValue != null">
+        option_value = #{optionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="optionCategory != null">
+        option_category = #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    set option_value = #{optionValue,jdbcType=VARCHAR},
+      option_category = #{optionCategory,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.Option">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_value" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, option_value, option_category
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option (object_id, option_value, option_category
+      )
+    values (#{objectId,jdbcType=VARCHAR}, #{optionValue,jdbcType=VARCHAR}, #{optionCategory,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="optionValue != null">
+        option_value,
+      </if>
+      <if test="optionCategory != null">
+        option_category,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        #{optionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="optionCategory != null">
+        #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    <set>
+      <if test="optionValue != null">
+        option_value = #{optionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="optionCategory != null">
+        option_category = #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    set option_value = #{optionValue,jdbcType=VARCHAR},
+      option_category = #{optionCategory,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.Option">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_value" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, option_value, option_category
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option (object_id, option_value, option_category
+      )
+    values (#{objectId,jdbcType=VARCHAR}, #{optionValue,jdbcType=VARCHAR}, #{optionCategory,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="optionValue != null">
+        option_value,
+      </if>
+      <if test="optionCategory != null">
+        option_category,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        #{optionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="optionCategory != null">
+        #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    <set>
+      <if test="optionValue != null">
+        option_value = #{optionValue,jdbcType=VARCHAR},
+      </if>
+      <if test="optionCategory != null">
+        option_category = #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    set option_value = #{optionValue,jdbcType=VARCHAR},
+      option_category = #{optionCategory,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.Option">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_value" javaType="java.lang.String" jdbcType="text" />
+      <arg column="option_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, option_value, option_category
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option (object_id, option_value, option_category
+      )
+    values (#{objectId,jdbcType=VARCHAR}, #{optionValue,jdbcType=text}, #{optionCategory,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="optionValue != null">
+        option_value,
+      </if>
+      <if test="optionCategory != null">
+        option_category,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        #{optionValue,jdbcType=text},
+      </if>
+      <if test="optionCategory != null">
+        #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    <set>
+      <if test="optionValue != null">
+        option_value = #{optionValue,jdbcType=text},
+      </if>
+      <if test="optionCategory != null">
+        option_category = #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    set option_value = #{optionValue,jdbcType=text},
+      option_category = #{optionCategory,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.Option">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_value" javaType="java.lang.String" jdbcType="text" />
+      <arg column="option_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, option_value, option_category
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option (object_id, option_value, option_category
+      )
+    values (#{objectId,jdbcType=VARCHAR}, #{optionValue,jdbcType=text}, #{optionCategory,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="optionValue != null">
+        option_value,
+      </if>
+      <if test="optionCategory != null">
+        option_category,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        #{optionValue,jdbcType=text},
+      </if>
+      <if test="optionCategory != null">
+        #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    <set>
+      <if test="optionValue != null">
+        option_value = #{optionValue,jdbcType=text},
+      </if>
+      <if test="optionCategory != null">
+        option_category = #{optionCategory,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    set option_value = #{optionValue,jdbcType=text},
+      option_category = #{optionCategory,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.Option">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="org.daiyuhe.blog.entity.Option">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_value" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, option_category
+  </sql>
+  <sql id="Blob_Column_List">
+    option_value
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option (object_id, option_category, option_value
+      )
+    values (#{objectId,jdbcType=VARCHAR}, #{optionCategory,jdbcType=VARCHAR}, #{optionValue,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="optionCategory != null">
+        option_category,
+      </if>
+      <if test="optionValue != null">
+        option_value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="optionCategory != null">
+        #{optionCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        #{optionValue,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    <set>
+      <if test="optionCategory != null">
+        option_category = #{optionCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        option_value = #{optionValue,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    set option_category = #{optionCategory,jdbcType=VARCHAR},
+      option_value = #{optionValue,jdbcType=LONGVARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    set option_category = #{optionCategory,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.Option">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="org.daiyuhe.blog.entity.Option">
+    <constructor>
+      <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_category" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="option_value" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    object_id, option_category
+  </sql>
+  <sql id="Blob_Column_List">
+    option_value
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from blog_option
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option (object_id, option_category, option_value
+      )
+    values (#{objectId,jdbcType=VARCHAR}, #{optionCategory,jdbcType=VARCHAR}, #{optionValue,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.Option">
+    insert into blog_option
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        object_id,
+      </if>
+      <if test="optionCategory != null">
+        option_category,
+      </if>
+      <if test="optionValue != null">
+        option_value,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="objectId != null">
+        #{objectId,jdbcType=VARCHAR},
+      </if>
+      <if test="optionCategory != null">
+        #{optionCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        #{optionValue,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    <set>
+      <if test="optionCategory != null">
+        option_category = #{optionCategory,jdbcType=VARCHAR},
+      </if>
+      <if test="optionValue != null">
+        option_value = #{optionValue,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    set option_category = #{optionCategory,jdbcType=VARCHAR},
+      option_value = #{optionValue,jdbcType=LONGVARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.Option">
+    update blog_option
+    set option_category = #{optionCategory,jdbcType=VARCHAR}
+    where object_id = #{objectId,jdbcType=VARCHAR}
+  </update>
+</mapper>
