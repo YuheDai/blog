@@ -17,5 +17,5 @@ public interface CategoryDao {
 
     int updateTitleById(@Param("objectId")String objectId, @Param("title")String title);
 
-    int addTagCountById(String objectId);
+    int incTagCount();
 }

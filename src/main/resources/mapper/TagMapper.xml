@@ -2,136 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.daiyuhe.blog.dao.TagDao">
-
-    <sql id="Base_Column_List">
-        object_id, title, published_article
-    </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
+    <insert id="insert">
+        insert into blog_tag (object_id, title, published_article_count)
+        values (#{objectId}, #{title}, #{publishedArticleCount})
+    </insert>
+    <select id="queryAll" resultType="Tag">
+        select *
         from blog_tag
-        where object_id = #{objectId,jdbcType=VARCHAR}
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from blog_tag
-        where object_id = #{objectId,jdbcType=VARCHAR}
-    </delete>
-    <insert id="insert" parameterType="org.daiyuhe.blog.entity.Tag">
-        insert into blog_tag (object_id, title, published_article
-        )
-        values (#{objectId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{publishedArticleCount,jdbcType=INTEGER}
-        )
-    </insert>
-    <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.Tag">
-        insert into blog_tag
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="objectId != null">
-                object_id,
-            </if>
-            <if test="title != null">
-                title,
-            </if>
-            <if test="publishedArticleCount != null">
-                published_article,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="objectId != null">
-                #{objectId,jdbcType=VARCHAR},
-            </if>
-            <if test="title != null">
-                #{title,jdbcType=VARCHAR},
-            </if>
-            <if test="publishedArticleCount != null">
-                #{publishedArticleCount,jdbcType=INTEGER},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.Tag">
-        update blog_tag
-        <set>
-            <if test="title != null">
-                title = #{title,jdbcType=VARCHAR},
-            </if>
-            <if test="publishedArticleCount != null">
-                published_article = #{publishedArticleCount,jdbcType=INTEGER},
-            </if>
-        </set>
-        where object_id = #{objectId,jdbcType=VARCHAR}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.Tag">
-        update blog_tag
-        set title = #{title,jdbcType=VARCHAR},
-        published_article = #{publishedArticleCount,jdbcType=INTEGER}
-        where object_id = #{objectId,jdbcType=VARCHAR}
-    </update>
-    <resultMap id="BaseResultMap" type="org.daiyuhe.blog.entity.Tag">
-        <constructor>
-            <idArg column="object_id" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="title" javaType="java.lang.String" jdbcType="VARCHAR"/>
-            <arg column="published_article" javaType="java.lang.Integer" jdbcType="INTEGER"/>
-        </constructor>
-    </resultMap>
-    <sql id="Base_Column_List">
-        object_id, title, published_article
-    </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-        select
-        <include refid="Base_Column_List"/>
-        from blog_tag
-        where object_id = #{objectId,jdbcType=VARCHAR}
+    <select id="queryById" resultType="Tag">
+        sel`ect *
+        from blog_tag where object_id = #{objectId}
     </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-        delete from blog_tag
-        where object_id = #{objectId,jdbcType=VARCHAR}
+    <select id="queryByTitle" resultType="Tag">
+        select *
+        from blog_tag where title = #{title}
+    </select>
+    <update id="incPublishedArticleCntByTitle">
+        update blog_tag
+        set published_article_count = published_article_count + 1
+        where title = #{title}
+    </update>
+    <delete id="deleteById">
+        delete from blog_tag where object_id = #{objectId}
     </delete>
-    <insert id="insert" parameterType="org.daiyuhe.blog.entity.Tag">
-        insert into blog_tag (object_id, title, published_article
-        )
-        values (#{objectId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{publishedArticleCount,jdbcType=INTEGER}
-        )
-    </insert>
-    <insert id="insertSelective" parameterType="org.daiyuhe.blog.entity.Tag">
-        insert into blog_tag
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="objectId != null">
-                object_id,
-            </if>
-            <if test="title != null">
-                title,
-            </if>
-            <if test="publishedArticleCount != null">
-                published_article,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="objectId != null">
-                #{objectId,jdbcType=VARCHAR},
-            </if>
-            <if test="title != null">
-                #{title,jdbcType=VARCHAR},
-            </if>
-            <if test="publishedArticleCount != null">
-                #{publishedArticleCount,jdbcType=INTEGER},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="org.daiyuhe.blog.entity.Tag">
-        update blog_tag
-        <set>
-            <if test="title != null">
-                title = #{title,jdbcType=VARCHAR},
-            </if>
-            <if test="publishedArticleCount != null">
-                published_article = #{publishedArticleCount,jdbcType=INTEGER},
-            </if>
-        </set>
-        where object_id = #{objectId,jdbcType=VARCHAR}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="org.daiyuhe.blog.entity.Tag">
-        update blog_tag
-        set title = #{title,jdbcType=VARCHAR},
-        published_article = #{publishedArticleCount,jdbcType=INTEGER}
-        where object_id = #{objectId,jdbcType=VARCHAR}
-    </update>
+    <delete id="deleteByTitle">
+        delete from blog_tag where title = #{title}
+    </delete>
 </mapper>

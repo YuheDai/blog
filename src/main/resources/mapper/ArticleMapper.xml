@@ -2,29 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.daiyuhe.blog.dao.ArticleDao">
+    <insert id="insert">
+        insert ignore into blog_article (object_id, title, abstracts, content, tags,
+                                         author_id, comment_content, view_count,
+                                         permalink, is_published, is_top, create_time,
+                                         update_time, commentable, view_password)
+        values (#{objectId}, #{title}, #{abstracts}, #{content}, #{tags},
+                #{authorId}, #{commentContent}, #{viewCount},
+                #{permalink}, #{isPublished}, #{isTop}, #{createTime},
+                #{update_time}, #{commentable}, #{viewPassword})
+    </insert>
+    <select id="queryAll" resultType="Article">
+        select *
+        from blog_article
+        order by create_time desc
+        limit #{offset}, #{limit}
+    </select>
     <select id="queryByPermalink" resultType="Article">
         select *
         from blog_article
         where permalink = #{permalink}
     </select>
-    <select id="queryAll" resultType="Article">
-        select *
-        from blog_article
-        order by limit #{offset}, #{limit}
-    </select>
     <delete id="deleteById">
-        delete from blog_article
+        delete
+        from blog_article
         where object_id = #{objectId}
     </delete>
-    <insert id="insert" parameterType="org.daiyuhe.blog.entity.Article">
-        insert ignore
-        into blog_article(object_id, title, abstracts, content, tags,
-        author_id, comment_count, view_count, permalink, is_published, is_top,
-        create_time, update_time, commentable, view_password)
-        values (#{objectId}, #{title}, #{abstracts}, #{content}, #{tags},
-        #{authorId}, #{commentCount}, #{viewCount}, #{permalink}, #{isPublished}, #{isTop},
-        #{createTime}, #{updateTime}, #{commentable}, #{viewPassword})
-    </insert>
     <update id="updateIsTopById">
         update blog_article
         set is_top = #{isTop}
@@ -48,21 +51,21 @@
     <update id="updateCommentableById">
         update blog_article
         set commentable = #{commentable}
-        where object_id = #{objectId}
+        where object_id = objectId
     </update>
     <update id="updateViewPasswordById">
         update blog_article
         set view_password = #{viewPassword}
-        where object_id = #{objectId}
+        where object_id = objectId
     </update>
-    <update id="addCommentCountById">
+    <update id="incCommentCountById">
         update blog_article
         set comment_count = comment_count + 1
-        where object_id = #{objectId}
+        where object_id = objectId
     </update>
-    <update id="addViewCountById">
+    <update id="incViewCountById">
         update blog_article
         set view_count = view_count + 1
-        where object_id = #{objectId}
+        where object_id = objectId
     </update>
 </mapper>

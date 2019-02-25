@@ -9,5 +9,4 @@ public interface ArchiveDao {
 
     List<Archive> queryAll();
 
-    int addArticleCount(int articleCount);
 }

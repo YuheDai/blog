@@ -9,7 +9,7 @@ public interface CategoryTagDao {
 
     List<Article> queryArticleByCategoryId(String categoryId);
 
-    int deleteTagByTagId(String tagId);
+    int deleteByTagId(String tagId);
 
     int insert(CategoryTag categoryTag);
 

@@ -9,7 +9,7 @@ public interface ArticleTagDao {
 
     List<Article> queryArticleByTagId(String tagId);
 
-    int deleteByArticleIdAndTagId(String articleId, String tagId);
+    int deleteByArticleAndTagId(String articleId, String tagId);
 
     int deleteByArticleId(String articleId);
 

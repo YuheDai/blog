@@ -45,8 +45,8 @@ public interface ArticleDao {
 
     int updateViewPasswordById(@Param("objectId") String objectId, @Param("viewPassword") String viewPassword);
 
-    int addCommentCountById(String objectId);
+    int incCommentCountById(String objectId);
 
-    int addViewCountById(String objectId);
+    int incViewCountById(String objectId);
 
 }

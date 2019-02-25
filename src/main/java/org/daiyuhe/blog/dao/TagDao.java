@@ -13,7 +13,7 @@ public interface TagDao {
 
     List<Tag> queryAll();
 
-    int addPublishedArticleCntById(@Param("objectId") String objectId, @Param("publishedArticleCount") int publishedArticleCount);
+    int incPublishedArticleCntById(@Param("objectId") String objectId, @Param("publishedArticleCount") int publishedArticleCount);
 
     int deleteById(String objectId);
 
